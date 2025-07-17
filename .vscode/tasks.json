@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Abrir Cypress (modo interativo)",
+      "type": "shell",
+      "command": "npx cypress open",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Executar Cypress (modo headless com relatório)",
+      "type": "shell",
+      "command": "npx cypress run --reporter mochawesome",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

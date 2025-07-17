@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-17T16:55:06.025Z",
+    "end": "2025-07-17T16:55:17.283Z",
+    "duration": 11258,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "896f160a-b429-4b4e-a22b-d7a07bed6e09",
+      "title": "",
+      "fullFile": "cypress\\e2e\\validacao_pedido_lista.cy.js",
+      "file": "cypress\\e2e\\validacao_pedido_lista.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8f7ba1e5-41f7-43f1-8b8b-2bc7f54fddff",
+          "title": "Validação de pedido - Lista",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve exibir todos os pedidos na lista",
+              "fullTitle": "Validação de pedido - Lista Deve exibir todos os pedidos na lista",
+              "timedOut": null,
+              "duration": 11191,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(_testData.default.user);\ncy.visit('/sales/order/history/');\ncy.get('table').should('be.visible');\ncy.get('td[data-th=\"Order #\"]').should('have.length.greaterThan', 0);\ncy.get('tbody tr').each($row => {\n  cy.wrap($row).within(() => {\n    cy.get('td[data-th=\"Order #\"]').should('be.visible');\n    cy.get('td[data-th=\"Date\"]').should('be.visible');\n    cy.get('td[data-th=\"Order Total\"]').should('be.visible');\n    cy.get('td[data-th=\"Status\"]').should('be.visible');\n  });\n});",
+              "err": {},
+              "uuid": "ab863c67-943d-44a0-9084-2a18bf259fcf",
+              "parentUUID": "8f7ba1e5-41f7-43f1-8b8b-2bc7f54fddff",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab863c67-943d-44a0-9084-2a18bf259fcf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11191,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

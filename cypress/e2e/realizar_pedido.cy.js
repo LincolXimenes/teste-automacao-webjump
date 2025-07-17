@@ -1,0 +1,41 @@
+/// <reference types="cypress" />
+import testData from '../fixtures/testData.json'
+
+describe('Fluxo de compra - Realizar pedido', () => {
+  it('Deve realizar um pedido com endereço válido', () => {
+    cy.login(testData.user)
+    cy.adicionarProdutoCarrinho(testData.product.name)
+    cy.contains('You added').should('be.visible')
+    cy.get('.message-success').should('contain', testData.product.name)
+    cy.wait(1000)
+    cy.get('.showcart').click()
+    cy.contains('View and Edit Cart').click()
+    cy.wait(1000)
+    cy.contains('span', 'Proceed to Checkout').parent('button').click({ force: true })
+    cy.wait(2000)
+    cy.preencherEnderecoValido()
+    cy.get("input[type=radio][name^='ko_unique_']").first().check({ force: true })
+    cy.contains('Next').click()
+    cy.wait(2000)
+    cy.get('input[type=radio][name="payment[method]"]', { timeout: 10000 }).first().check({ force: true })
+    cy.wait(2000)
+    cy.contains('span', 'Place Order').parent('button').click({ force: true })
+    cy.wait(3000)
+    cy.contains('Thank you for your purchase').should('exist')
+  })
+
+  it.skip('Não deve finalizar pedido sem endereço cadastrado', () => {
+    cy.cadastrarUsuarioSemEndereco()
+    cy.loginUsuarioSemEndereco()
+    cy.adicionarProdutoCarrinho(testData.product.name)
+    cy.contains('You added').should('be.visible')
+    cy.get('.message-success').should('contain', testData.product.name)
+    cy.wait(1000)
+    cy.get('.showcart').click()
+    cy.contains('View and Edit Cart').click()
+    cy.wait(1000)
+    cy.contains('span', 'Proceed to Checkout').parent('button').click({ force: true })   
+    cy.contains('Next').click()    
+    cy.contains('This is a required field').should('exist')
+  })
+})

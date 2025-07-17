@@ -1,0 +1,12 @@
+{
+  "user": {
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "testuser@example.com",
+    "password": "Test@1234"
+  },
+  "product": {
+    "name": "Push It Messenger Bag",
+    "sku": "24-MB04"
+  }
+}
