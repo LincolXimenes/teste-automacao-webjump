@@ -21,9 +21,14 @@ Este projeto utiliza o Cypress para automação de testes end-to-end em ambiente
    npm install
    ```
 
+
 ### Scripts disponíveis
 - `npm test` — Executa todos os testes em modo headless
 - `npm run cypress:open` — Abre o Cypress em modo interativo
+
+### Reexecução automática de testes falhados
+Se algum teste falhar em modo headless, ele será reexecutado automaticamente até 2 vezes (apenas os testes falhados). Isso é configurado via a opção `retries` no arquivo `cypress.config.js`.
+No modo interativo, não há reexecução automática.
 
 ### Principais dependências
 - `cypress` — Framework de automação

@@ -10,6 +10,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@cypress/grep": "^4.1.0",
     "@faker-js/faker": "^9.9.0",
     "cypress": "^13.0.0",
     "mochawesome": "^7.1.3"
